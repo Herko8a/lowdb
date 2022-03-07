@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Hector Ochoa</Authors>
+    <Company>Hercoka Systems</Company>
+    <Description>It comes from the idea of TypiCode to JavaScript
+https://github.com/typicode/lowdb
+
+1.-Define a path for the json file
+2.-Create SyncFile adapter with path
+3.-Create lowDB object and put the adapter, asign the object model 
+4.- Use Linq to CRUD Operations</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+  </PropertyGroup>
+
+</Project>
