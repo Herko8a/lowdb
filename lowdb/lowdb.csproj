@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Hector Ochoa</Authors>
     <Company>Hercoka Systems</Company>
     <Description>It comes from the idea of TypiCode to JavaScript
@@ -12,9 +12,10 @@ https://github.com/typicode/lowdb
 3.-Create lowDB object and put the adapter, asign the object model 
 4.- Use Linq to CRUD Operations</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.1.0</Version>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <FileVersion>1.0.2.0</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
