@@ -1,21 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Hector Ochoa</Authors>
     <Company>Hercoka Systems</Company>
-    <Description>It comes from the idea of TypiCode to JavaScript
-https://github.com/typicode/lowdb
-
-1.-Define a path for the json file
+    <Description>1.-Define a path for the json file
 2.-Create SyncFile adapter with path
 3.-Create lowDB object and put the adapter, asign the object model 
 4.- Use Linq to CRUD Operations</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>2.0.0</Version>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <FileVersion>1.0.2.0</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Herko8a/lowdb</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Herko8a/lowdb</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>low db, linq, little, db, json.</PackageTags>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
