@@ -5,36 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-namespace lowdb
+namespace lowdb;
+
+public class lowdb<T>
 {
-    public class lowdb<T>
+    public T data { get; set; }
+    FileSync adapter;
+
+    public lowdb(FileSync fs)
     {
-        public T data { get; set; }
-        FileSync adapter;
+        adapter = fs;
+        this.read();
+    }
 
-        public lowdb(FileSync fs)
-        {
-            adapter = fs;
-            this.read();
-        }
+    T read()
+    {
+        string sdata = adapter.read();
+        data = JsonSerializer.Deserialize<T>(sdata);
+        return data;
+    }
 
-        T read()
-        {
-            string sdata = adapter.read();
-            data = JsonSerializer.Deserialize<T>(sdata);
-            return data;
-        }
+    public bool write()
+    {
+        return adapter.write(JsonSerializer.Serialize(data));
+    }
 
-        public bool write()
-        {
-            return adapter.write(JsonSerializer.Serialize(data));
-        }
-
-        public void refresh()
-        {
-            this.read();
-        }
-
+    public void refresh()
+    {
+        this.read();
     }
 
 }

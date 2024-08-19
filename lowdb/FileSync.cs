@@ -5,58 +5,58 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace lowdb
+namespace lowdb;
+
+public class FileSync
 {
-    public class FileSync
+    public string PathFile { get; set; }
+    Encoding enc = Encoding.UTF8;
+
+
+    public FileSync(string pathFile)
     {
-        public string PathFile { get; set; }
-        Encoding enc = Encoding.UTF8;
+        PathFile = Path.Combine(Directory.GetCurrentDirectory(), pathFile);
+    }
 
+    public FileSync(string pathFile, Encoding en)
+    {
+        PathFile = Path.Combine(Directory.GetCurrentDirectory(), pathFile);
+        enc = en;
+    }
 
-        public FileSync(string pathFile)
+    public string read()
+    {
+        string sData = "{}";
+
+        try
         {
-            PathFile = Path.Combine(Directory.GetCurrentDirectory(), pathFile);
-        }
 
-        public FileSync(string pathFile, Encoding en)
+            if (File.Exists(PathFile))
+                sData = System.IO.File.ReadAllText(PathFile);
+            else
+                System.IO.File.WriteAllText(PathFile, "{}", Encoding.UTF8);
+        }
+        catch
+        {}
+
+        return sData;
+    }
+
+    public bool write(string data)
+    {
+        bool res = false;
+
+        try
         {
-            PathFile = Path.Combine(Directory.GetCurrentDirectory(), pathFile);
-            enc = en;
+            string directoryPath = Path.GetDirectoryName(PathFile);
+            if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+            System.IO.File.WriteAllText(PathFile, data, enc);
+            res = true;
         }
+        catch
+        { }
 
-        public string read()
-        {
-            string sData = "{}";
-
-            try
-            {
-
-                if (File.Exists(PathFile))
-                    sData = System.IO.File.ReadAllText(PathFile);
-                else
-                    System.IO.File.WriteAllText(PathFile, "{}", Encoding.UTF8);
-            }
-            catch
-            {}
-
-            return sData;
-        }
-
-        public bool write(string data)
-        {
-            bool res = false;
-
-            try
-            {
-                System.IO.File.WriteAllText(PathFile, data, enc);
-                res = true;
-            }
-            catch
-            { }
-
-            return res;
-        }
-
+        return res;
     }
 
 }
